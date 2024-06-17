@@ -18,17 +18,7 @@ export default function CommentArea({ asin }) {
 
     useEffect(() => {
       setIsLoading(true);
-        /* fetch(URLCommentsAPI+asin+"/comments/", {
-            headers: { Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNjY2M2NzgxODQ0MjAwMTUzNzU3NWIiLCJpYXQiOjE3MTcxNjAzMTcsImV4cCI6MTcxODM2OTkxN30.bqrIYq7VrpiQgG5X885HS2AfENPgUz0dSGUkrW357Ek' }
-        }).then( response => response.json() )
-          .then( data => {
-                  setComments(data);
-                  setIsLoading(false);
-                })
-          .catch(err => {
-            setIsError(true)
-            setIsLoading(false);
-          }) */
+        
          axios.get('/books/'+asin+"/comments/")
           .then(response => {
             setComments(response.data);

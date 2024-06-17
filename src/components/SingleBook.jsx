@@ -20,9 +20,9 @@ export default function SingleBook({ book, selected, setSelected }) {
         <Card.Body>
           <Card.Title>{book.title}</Card.Title>
           <Button 
-            className="btn btn-dark w-100 my-2"
+            className="btn btn-dark w-100 my-4"
             onClick={() => navigate('/details/'+book.asin)}
-          >Book Details</Button>
+          >Dettagli</Button>
         </Card.Body>
       </Card>
       {/* {selected && <CommentArea asin={book.asin} />} */}

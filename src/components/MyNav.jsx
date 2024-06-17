@@ -10,10 +10,10 @@ export default function MyNav({search, handleSearch}) {
   let [authUserCtx] = useContext(AuthContext);
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" bg={themeCtx} data-bs-theme={themeCtx}>
+    <Navbar expand="lg" className="bg-body-primary" bg={themeCtx} data-bs-theme={themeCtx}>
       <Container>
       <Link to="/">
-        <Navbar.Brand>React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand>EpiBooks</Navbar.Brand>
       </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -22,12 +22,12 @@ export default function MyNav({search, handleSearch}) {
           </Nav>
         </Navbar.Collapse>
         <SearchBook search={search} handleSearch={handleSearch} />
-        <Navbar.Text className={themeCtx + "btn" +  " mx-5" }>
+        <Navbar.Text className={themeCtx + "btn" +  " mx-4" }>
             Signed in as: <a href="/">{authUserCtx}</a>
           </Navbar.Text>
           <Button variant="dark" onClick={() => {
             themeCtx === 'light' ? setThemeCtx('dark') : setThemeCtx('light')
-          }}>Theme</Button>
+          }}> {themeCtx === 'light' ? "tema scuro ": "tema chiaro"}</Button>
           
       </Container>
     </Navbar>

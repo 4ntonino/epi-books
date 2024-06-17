@@ -20,11 +20,11 @@ export default function BookDetail() {
                     </Card>
                 </Col>
                 <Col md={7}>
-                    <h1>Book Details</h1>
+                    <h1>Dettagli del libro</h1>
                     <ListGroup>
-                        <ListGroup.Item>Title: {book.title} </ListGroup.Item>
-                        <ListGroup.Item>Category: {book.category} </ListGroup.Item>
-                        <ListGroup.Item>Price: €{book.price}</ListGroup.Item>
+                        <ListGroup.Item>Titolo: {book.title} </ListGroup.Item>
+                        <ListGroup.Item>Categoria: {book.category} </ListGroup.Item>
+                        <ListGroup.Item>Prezzo: €{book.price}</ListGroup.Item>
                     </ListGroup>
                 </Col>
             </Row>

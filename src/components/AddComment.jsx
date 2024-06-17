@@ -40,16 +40,16 @@ export default function AddComment({ elementId, setAdd, add }) {
 
   return (
     <Form>
-      <Form.Group className="mb-3">
+      <Form.Group className="mb-1">
         <Form.Control 
           type="text" 
-          placeholder="Inserisci qui il tuo commento"
+          placeholder="Commenta qui..."
           onChange={setCommentHandler}        
         />
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Select aria-label="Default select example" onChange={setRateHandler}>
-          <option>Open this select menu</option>
+          <option>Apri il menù a tendina</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -58,7 +58,7 @@ export default function AddComment({ elementId, setAdd, add }) {
         </Form.Select>
       </Form.Group>
       <Form.Group className="mb-3">
-        <Button variant="dark" onClick={sendComment}>Add Comment</Button>
+        <Button variant="gray" onClick={sendComment}>Commenta</Button>
       </Form.Group>
     </Form>
   );
