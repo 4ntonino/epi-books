@@ -14,41 +14,40 @@ test("Verifica che il componente Welcome venga montato correttamente", () => {
   expect(welcome).toBeInTheDocument();
 });
 
-/* 
+
 //2
 
 test("Verifica che vengano effettivamente renderizzate tante bootstrap cards quanti sono i libri nel file json utilizzato", () => {
   render(<App />);
-  const cards = screen.getAllByTestId("card");
+  const cards = screen.getAllByTestId("card-single-book");
   expect(cards).toHaveLength(150)
-})
+});
 
 //3
 
 test("Verifica che il componente CommentArea venga renderizzato correttamente", () => {
   render(<App />);
-  const CommentArea = screen.getByText("Commenta");
-  expect(CommentArea).toBeInTheDocument();
+  const btnDetail = screen.getAllByRole('button', {name: /Book Details/i})
+  fireEvent.click(btnDetail[0])
+  const CommentArea = screen.getAllByPlaceholderText(/Commenta qui.../i);
+  expect(commentArea[0]).toBeInTheDocument()
 })
 
-//5
-test('(2)Verifica, magari con più tests, che il filtraggio dei libri tramite navbar si comporti come previsto', () => { 
+
+//4
+
+test("Verifica che il filtraggio della navbar si comporti in maniera corretta", async () => {
   render(<App />);
-  const Searchbar = screen.getByPlaceholderText("Cerca un libro...");
-  fireEvent.change(Searchbar, { target: { value:"star wars"}})
-  const filteredCards = screen.getAllByTestId("book-card");
-  expect(filteredCards).toHaveLength(3)
-})
-
-//6
 
 
+  const Search = screen.getByPlaceholderText(/Cera un libro.../i); 
+  fireEvent.change(Search, { target: { value: 'Grimoire' } });
+  const cards = await screen.findAllByTestId("card-single-book");
 
-
+  // Verifica che rimanga un solo libro visibile dopo il filtraggio
+  expect(cards).toHaveLength(1);
+});
 
 
 
 
-
-
- */

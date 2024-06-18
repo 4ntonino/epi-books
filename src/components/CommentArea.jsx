@@ -31,7 +31,7 @@ export default function CommentArea({ asin }) {
     }, [add, asin])
 
   return (
-    <div>
+    <div data-testid= "comment-area" >
         {isLoading && <div className="text-center my-3"><Spinner className='my-3' animation="border" role="status" /> </div>}
         {isError && <div className="text-center my-3"><Alert variant={'danger'}>Errore di caricamento</Alert></div>}
         <AddComment elementId={asin} setAdd={setAdd} add={add} />
