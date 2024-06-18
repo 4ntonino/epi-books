@@ -1,15 +1,8 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import App from './App';
-import { expect, test } from 'vitest';
 
 
 
-//1
-test("Verifica che il componente Welcome venga montato correttamente", () => {
-  render(<App />);
-  const welcomeComponent = screen.getByText("Welcome to EpiBook!");
-  expect(welcomeComponent).toBeInTheDocument();
-});
 
 
 
@@ -17,11 +10,11 @@ test("Verifica che il componente Welcome venga montato correttamente", () => {
 //1
 test("Verifica che il componente Welcome venga montato correttamente", () => {
   render(<App />);
-  const welcomeComponent = screen.getByText("Welcome to EpiBook!");
-  expect(welcomeComponent).toBeInTheDocument();
+  const welcome = screen.getByText("Welcome to EpiBook!");
+  expect(welcome).toBeInTheDocument();
 });
 
-
+/* 
 //2
 
 test("Verifica che vengano effettivamente renderizzate tante bootstrap cards quanti sono i libri nel file json utilizzato", () => {
@@ -58,3 +51,4 @@ test('(2)Verifica, magari con più tests, che il filtraggio dei libri tramite na
 
 
 
+ */
