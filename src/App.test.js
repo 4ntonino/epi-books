@@ -4,9 +4,6 @@ import App from './App';
 
 
 
-
-
-
 //1
 test("Verifica che il componente Welcome venga montato correttamente", () => {
   render(<App />);
@@ -49,5 +46,33 @@ test("Verifica che il filtraggio della navbar si comporti in maniera corretta", 
 });
 
 
+
+//5
+it('Verifica che ,cliccando su un libro, il suo bordo cambi colore', () => {
+  render(<App />);
+  const allTheBooksCards = screen.getAllByTestId('book-card');
+  const firstBookCard = allTheBooksCards[0];
+  fireEvent.click(firstBookCard);
+  expect(firstBookCard).toHaveStyle('border: 2px solid red');
+})
+
+//6
+it('verifico che se cliccando su un altro libro il primo torna allo stato originale', () => {
+  render(<App />);
+  const allTheBooksCards = screen.getAllByTestId('book-card');
+  const firstBookCard = allTheBooksCards[0];
+  fireEvent.click(firstBookCard);
+  expect(firstBookCard).toHaveStyle('border: 2px solid red');
+  const secondBookCard = allTheBooksCards[1];
+  fireEvent.click(secondBookCard);
+  expect(firstBookCard).not.toHaveStyle('border: 2px solid red');
+})
+
+//7
+it('verifico che all avvio non ci siano istanze del componente SingleComment', () => {
+  render(<App />);
+  const allTheBooksComment = screen.queryAllByTestId('single-comment');
+  expect(allTheBooksComment).toHaveLength(0)
+})
 
 
